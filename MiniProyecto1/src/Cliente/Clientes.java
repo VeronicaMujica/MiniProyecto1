@@ -2,13 +2,15 @@ package Cliente;
 
 public class Clientes {
     private String nombre;
-    private String cedula;
+    private long cedula;
+    private double dineroAhorrado;
     private double nivelIngresos;
     private String fechaCreacion;
 
-    public Clientes(String nombre, String cedula, double nivelIngresos, String fechaCreacion) {
+    public Clientes(String nombre, long cedula,  double dineroAhorrado, double nivelIngresos, String fechaCreacion) {
         this.nombre = nombre;
         this.cedula = cedula;
+        this.dineroAhorrado = dineroAhorrado;
         this.nivelIngresos = nivelIngresos;
         this.fechaCreacion = fechaCreacion;
     }
@@ -22,12 +24,20 @@ public class Clientes {
         this.nombre = nombre;
     }
 
-    public String getCedula() {
+    public double getCedula() {
         return cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(long cedula) {
         this.cedula = cedula;
+    }
+
+    public double getDineroAhorrado() {
+        return dineroAhorrado;
+    }
+
+    public void setDineroAhorrado(double dineroAhorrado) {
+        this.dineroAhorrado = dineroAhorrado;
     }
 
     public double getNivelIngresos() {
@@ -48,9 +58,10 @@ public class Clientes {
 
     public String toString() {
         return "Cliente:" +
-                "nombre='" + nombre + '\'' +
-                ", cedula='" + cedula + '\'' +
-                ", nivelIngresos=" + nivelIngresos +
-                ", fechaCreacion='" + fechaCreacion + '\'';
+                " Nombre: '" + nombre + '\'' +
+                ", Cedula: " + cedula  +
+                ", Dinero Ahorrado: " + dineroAhorrado +
+                ", Nivel de Ingresos: " + nivelIngresos +
+                ", Fecha de Creacion: '" + fechaCreacion + '\'';
     }
 }
