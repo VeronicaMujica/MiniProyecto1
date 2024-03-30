@@ -1,4 +1,4 @@
-#🚀 MiniProyecto 1: Sistema de Gestión de Ahorros 🌟
+##🚀 MiniProyecto 1: Sistema de Gestión de Ahorros 🌟
 
 ## 💼 Integrantes del Equipo:
 
