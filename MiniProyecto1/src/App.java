@@ -46,22 +46,25 @@ public class App {
                     long Cedula = scanner.nextLong();
                     System.out.print("Dinero a insertar: ");
                     double dineroAInsertar = scanner.nextDouble();
-                    scanner.nextLine();
-                    
+                    scanner.nextLine(); 
                     crud.insertarDinero(Cedula, dineroAInsertar);
                     break;
     
                 case 3:
-                //ACTUALIZAR DINERO AHORRADO
-                break;
+                    System.out.print("Cedula del cliente: ");
+                    long cedulaActualizar = scanner.nextLong();
+                    System.out.print("Nuevo dinero ahorrado: ");
+                    double nuevoDineroAhorrado = scanner.nextDouble();
+                    crud.actualizarDinero(cedulaActualizar, nuevoDineroAhorrado);
+                    break;
     
                 case 4:
-                System.out.print("Ingrese la cedula: ");
-                long cedulaEliminar = scanner.nextLong();
-                System.out.print("Ingrese la cantidad de dinero a eliminar: ");
-                double dineroEliminar = scanner.nextDouble();
-                crud.eliminarDinero(cedulaEliminar, dineroEliminar);
-                break;
+                    System.out.print("Ingrese la cedula: ");
+                    long cedulaEliminar = scanner.nextLong();
+                    System.out.print("Ingrese la cantidad de dinero a eliminar: ");
+                    double dineroEliminar = scanner.nextDouble();
+                    crud.eliminarDinero(cedulaEliminar, dineroEliminar);
+                    break;
     
                 case 5:
                     System.out.print("Nombre del cliente a buscar: ");

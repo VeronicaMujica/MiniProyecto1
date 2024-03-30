@@ -34,7 +34,14 @@ public class CRUDClientes {
         }
     }
 
-    public void actualizarDinero() {
+    public void actualizarDinero(long cedula, double nuevoDineroAhorrado) {
+        Clientes cliente = buscarCedula(cedula);
+        if (cliente != null) {
+            cliente.setDineroAhorrado(nuevoDineroAhorrado);
+            System.out.println("Dinero actualizado correctamente para el cliente " + cliente.getNombre());
+        } else {
+            System.out.println("Cliente no encontrado");
+        }
 
     }
 
