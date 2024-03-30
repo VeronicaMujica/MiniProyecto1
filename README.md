@@ -1,9 +1,11 @@
-## MiniProyecto 1
+#🚀 MiniProyecto 1: Sistema de Gestión de Ahorros 🌟
 
-MiniProyecto numero 1, creación de CRUD y sistema de ahorros para clientes en Java.
+## 💼 Integrantes del Equipo:
 
-## Integrantes:
-
-- Verónica Lorena Mujica Gavidia / 2359406
+- Verónica Lorena Mujica Gavidia / 2359406 
 - Jeidy Nicol Murillo Murillo 
-- Sebastian Ceron Orozco / 2266148
+- Sebastian Ceron Orozco / 2266148 
+
+**Objetivos** 🎯
+- Crear un sistema CRUD (Crear, Leer, Actualizar, Eliminar).
+- Crear un apartado de prestamos. 
