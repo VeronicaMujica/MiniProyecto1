@@ -38,8 +38,19 @@ public class CRUDClientes {
 
     }
 
-    public void eliminarDinero() {
-
+    public void eliminarDinero(long cedula, double cantidadDinero) {
+        Clientes cliente = buscarCedula(cedula);
+        if (cliente != null) {
+            double dineroActual = cliente.getDineroAhorrado();
+            if (cantidadDinero <= dineroActual) {
+                cliente.setDineroAhorrado(dineroActual - cantidadDinero);
+                System.out.println("Dinero eliminado correctamente del cliente " + cliente.getNombre());
+            } else {
+                System.out.println("No se puede eliminar esa cantidad de dinero!!");
+            }
+        } else {
+            System.out.println("Cliente no encontrado.");
+        }
     }
 
     public void buscarCliente(String nombre) {

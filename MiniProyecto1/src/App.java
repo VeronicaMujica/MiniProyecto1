@@ -56,7 +56,11 @@ public class App {
                 break;
     
                 case 4:
-                //ELIMINAR DINERO AHORRADO
+                System.out.print("Ingrese la cedula: ");
+                long cedulaEliminar = scanner.nextLong();
+                System.out.print("Ingrese la cantidad de dinero a eliminar: ");
+                double dineroEliminar = scanner.nextDouble();
+                crud.eliminarDinero(cedulaEliminar, dineroEliminar);
                 break;
     
                 case 5:
