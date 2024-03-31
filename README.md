@@ -8,4 +8,4 @@
 
 **Objetivos** 🎯
 - Crear un sistema CRUD (Crear, Leer, Actualizar, Eliminar).
-- Crear un apartado de prestamos. 
+- Crear un apartado de prestamos y CDT.
