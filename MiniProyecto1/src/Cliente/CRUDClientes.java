@@ -1,9 +1,10 @@
 package Cliente;
-
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class CRUDClientes {
-    private ArrayList<Clientes> clientes;
+    private static ArrayList<Clientes> clientes;
+    Scanner scanner = new Scanner(System.in);
 
     public CRUDClientes() {
         clientes = new ArrayList<>();
@@ -13,7 +14,7 @@ public class CRUDClientes {
         clientes.add(cliente);
     }
 
-    public Clientes buscarCedula(long cedula) {
+    public static Clientes buscarCedula(long cedula) {
         for (Clientes cliente : clientes) {
             if (cliente.getCedula() == cedula) {
                 return cliente;
@@ -83,5 +84,88 @@ public class CRUDClientes {
             }
         }
     }
-}
 
+
+    public void SolicitudPrestamo(long cedula) {
+
+        if (clientes.isEmpty()) {
+            System.out.println("No hay clientes registrados en el sistema.");
+        } else{
+            Clientes cliente = buscarCedula(cedula);
+    
+            if (cliente != null) {
+                double ahorroCliente = cliente.getDineroAhorrado();
+                double creditoMaximo = ahorroCliente * 2;
+    
+                System.out.println("Ingrese el monto de la solicitud del prestamo: ");
+                double valorPrestamo = scanner.nextDouble();
+                scanner.nextLine(); 
+    
+                if (valorPrestamo >= 1 && valorPrestamo <= creditoMaximo) {
+                    if (valorPrestamo <= ahorroCliente) {
+                        double saldoFinal = ahorroCliente - valorPrestamo;
+                        cliente.setDineroAhorrado(saldoFinal);
+                        System.out.println("el prestamo solicitado por un valor de "+ valorPrestamo + " del cliente ha sido aprobado su saldo restante es de: " + saldoFinal);
+                    } 
+                } else {
+                    System.out.println("El valor del prestamo es mayor a lo ahorrado");
+    
+                    double interesAnual = 0.02;
+                    double interesMensual = (interesAnual/12);
+                    double meses = 6; 
+                    double interes = valorPrestamo * (Math.pow(1 + (interesMensual), meses));
+                    double cuotaMensual = (interes/6);
+    
+                    System.out.println("El valor de la cuota mensual del cliente con numero de cedula "+ cedula + " es: " + cuotaMensual);
+                    }
+                }else{
+                    System.out.println("El cliente con el numero cedula "+ cedula +" no se encuentra registrado, verifica nuevamente el numero...");
+                }
+            }
+        }
+
+
+        public static void solicitudCdt(long cedula) {
+            if (clientes.isEmpty()) {
+                System.out.println("No hay clientes registrados en el sistema.");
+            } else {
+                Clientes cliente = buscarCedula(cedula);
+    
+                if (cliente != null) {
+                    double ahorroActual = cliente.getDineroAhorrado();
+                    
+                    Scanner scanner = new Scanner(System.in);
+                    int eleccion;
+    
+                    System.out.println("\nOpciones disponibles para CDT:");
+                    System.out.println("1. Solicitud de un plazo de 3 meses con tasa de interés del 3%");
+                    System.out.println("2. Solicitud de un plazo de 6 meses con tasa de interés del 5%");
+                    System.out.println("3. Ninguno - volver atrás");
+                    System.out.print("Seleccione una opción: ");
+                    eleccion = scanner.nextInt();
+    
+                    switch (eleccion) {
+                        case 1:
+                            double interesAhorro1 = ahorroActual * (0.03 / (12 / 3));
+                            double total1 = ahorroActual + interesAhorro1;
+                            System.out.println("En el plazo de 3 meses por el CDT recibirá un total de: " + interesAhorro1);
+                            System.out.println("El ahorro total es de: " + total1);
+                            break;
+                        case 2:
+                            double interesAhorro2 = ahorroActual * (0.05 / (12 / 6));
+                            double total2 = ahorroActual + interesAhorro2;
+                            System.out.println("En el plazo de 6 meses por el CDT recibirá un total de: " + interesAhorro2);
+                            System.out.println("El ahorro total es de: " + total2);
+                            break;
+                        case 3:
+                            System.out.println("Volviendo atrás...");
+                            break;
+                        default:
+                            System.out.println("Opción inválida.");
+                    }
+                } else {
+                    System.out.println("Cliente no encontrado.");
+                }
+            }
+        }
+    }
