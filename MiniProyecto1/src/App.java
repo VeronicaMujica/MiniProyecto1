@@ -16,7 +16,8 @@ public class App {
             System.out.println("4. Eliminar dinero ahorrado");
             System.out.println("5. Buscar cliente por nombre");
             System.out.println("6. Listar todos los clientes");
-            System.out.println("7. Salir");
+            System.out.println("7. Solicitud de prestamos");
+            System.out.println("9. Salir");
 
             System.out.print("\nSeleccione una opcion: ");
             int opcion = scanner.nextInt();
@@ -72,6 +73,12 @@ public class App {
                     crud.listarClientes();
                     break;
                 case 7:
+                    System.out.println("Bienvenidos al apartado de prestamo.");
+                    System.out.println("Ingrese la cedula del cliente quien solicita el prestamo: ");
+                    long cedulaCliente = scanner.nextLong();
+                    crud.SolicitudPrestamo(cedulaCliente);
+                    break;
+                case 9:
                     System.out.println("Saliendo...");
                     scanner.close();
                     System.exit(0);
