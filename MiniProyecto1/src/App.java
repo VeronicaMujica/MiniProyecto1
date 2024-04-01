@@ -52,7 +52,11 @@ public class App {
                     break;
     
                 case 3:
-                //ACTUALIZAR DINERO AHORRADO
+                System.out.print("Ingrese la cedula: ");
+                long cedulaActualizar = scanner.nextLong();
+                System.out.print("Ingrese la cantidad de dinero a actualizar: ");
+                double dineroActualizar = scanner.nextDouble();
+                crud.actualizarDinero(cedulaActualizar, dineroActualizar);
                 break;
     
                 case 4:
