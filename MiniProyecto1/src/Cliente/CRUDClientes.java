@@ -1,9 +1,10 @@
 package Cliente;
-
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class CRUDClientes {
     private ArrayList<Clientes> clientes;
+    Scanner scanner = new Scanner(System.in);
 
     public CRUDClientes() {
         clientes = new ArrayList<>();
@@ -72,5 +73,48 @@ public class CRUDClientes {
             }
         }
     }
-}
+
+
+    public void SolicitudPrestamo(long cedula) {
+
+        if (clientes.isEmpty()) {
+            System.out.println("No hay clientes registrados en el sistema.");
+        } else{
+            Clientes cliente = buscarCedula(cedula);
+    
+            if (cliente != null) {
+                double ahorroCliente = cliente.getDineroAhorrado();
+                double creditoMaximo = ahorroCliente * 2;
+    
+                System.out.println("Ingrese el monto de la solicitud del prestamo: ");
+                double valorPrestamo = scanner.nextDouble();
+                scanner.nextLine(); 
+    
+                if (valorPrestamo >= 1 && valorPrestamo <= creditoMaximo) {
+                    if (valorPrestamo <= ahorroCliente) {
+                        double saldoFinal = ahorroCliente - valorPrestamo;
+                        cliente.setDineroAhorrado(saldoFinal);
+                        System.out.println("el prestamo solicitado por un valor de "+ valorPrestamo + " del cliente ha sido aprobado su saldo restante es de: " + saldoFinal);
+                    } 
+                } else {
+                    System.out.println("El valor del prestamo es mayor a lo ahorrado");
+    
+                    double interesAnual = 0.02;
+                    double interesMensual = (interesAnual/12);
+                    double meses = 6; 
+                    double interes = valorPrestamo * (Math.pow(1 + (interesMensual), meses));
+                    double cuotaMensual = (interes/6);
+    
+                    System.out.println("El valor de la cuota mensual del cliente con numero de cedula"+cedula+"es: " + cuotaMensual);
+                    }
+                }else{
+                    System.out.println("El cliente con el numero cedula "+ cedula +" no se encuentra registrado, verifica nuevamente el numero...");
+                }
+            }
+        }
+    }
+
+
+
+
 
