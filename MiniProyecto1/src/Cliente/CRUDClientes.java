@@ -96,7 +96,6 @@ public class CRUDClientes {
             if (cliente != null) {
                 double ahorroCliente = cliente.getDineroAhorrado();
                 double creditoMaximo = ahorroCliente * 2;
-    
                 System.out.println("Ingrese el monto de la solicitud del prestamo: ");
                 double valorPrestamo = scanner.nextDouble();
                 scanner.nextLine(); 
@@ -105,22 +104,29 @@ public class CRUDClientes {
                     if (valorPrestamo <= ahorroCliente) {
                         double saldoFinal = ahorroCliente - valorPrestamo;
                         cliente.setDineroAhorrado(saldoFinal);
-                        System.out.println("el prestamo solicitado por un valor de "+ valorPrestamo + " del cliente ha sido aprobado su saldo restante es de: " + saldoFinal);
-                    } 
-                } else {
-                    System.out.println("El valor del prestamo es mayor a lo ahorrado");
+                        System.out.println("El prestamo solicitado por un valor de "+ valorPrestamo + 
+                        " del cliente ha sido aprobado su saldo restante es de: " + saldoFinal);
+                    }else{
+                        double valorExcedido = valorPrestamo - ahorroCliente;
+                        ahorroCliente = 0;
+                        cliente.setDineroAhorrado(ahorroCliente);
+                        System.out.println("el prestamo solicitado por un valor de "+ valorPrestamo + 
+                        " del cliente ha sido aprobado su saldo restante es de: " + ahorroCliente);
+                        System.out.println("El valor del prestamo es mayor a lo ahorrado por "+ valorExcedido);
+                        double interesAnual = 0.02;
+                        double interesMensual = (interesAnual/12);
+                        double meses = 6; 
+                        double interes = valorPrestamo * (Math.pow(1 + (interesMensual), meses));
+                        double cuotaMensual = (interes/6);
+                        System.out.println("El valor de la cuota mensual del cliente con numero de cedula "+ cedula + " es: " + cuotaMensual);
     
-                    double interesAnual = 0.02;
-                    double interesMensual = (interesAnual/12);
-                    double meses = 6; 
-                    double interes = valorPrestamo * (Math.pow(1 + (interesMensual), meses));
-                    double cuotaMensual = (interes/6);
-    
-                    System.out.println("El valor de la cuota mensual del cliente con numero de cedula "+ cedula + " es: " + cuotaMensual);
-                    }
-                }else{
-                    System.out.println("El cliente con el numero cedula "+ cedula +" no se encuentra registrado, verifica nuevamente el numero...");
                 }
+                }else {
+                    System.out.println("El valor del prestamo excede su credito, solo puede ser el doble de su dinero ahorrado");
+                    }
+            }else{
+                System.out.println("El cliente con el numero cedula "+ cedula +" no se encuentra registrado, verifica nuevamente el numero...");
+            }
             }
         }
 
