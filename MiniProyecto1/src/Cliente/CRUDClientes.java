@@ -2,19 +2,19 @@ package Cliente;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class CRUDClientes {
-    private static ArrayList<Clientes> clientes;
+public class CRUDClientes { // Este es la clase que abarca toda la funcionalidad de la aplicacion como sus funciones y el vector clientes.
+    private static ArrayList<Clientes> clientes; // Creacion de un vector.
     Scanner scanner = new Scanner(System.in);
 
-    public CRUDClientes() {
+    public CRUDClientes() { // Funcion de crear un nuevo vector para los clientes cliente.
         clientes = new ArrayList<>();
     }
 
-    public void crearCliente(Clientes cliente) {
+    public void crearCliente(Clientes cliente) { // Funcion crear cliente.
         clientes.add(cliente);
     }
 
-    public static Clientes buscarCedula(long cedula) {
+    public static Clientes buscarCedula(long cedula) { // Funcion para buscar cliente por cedula.
         for (Clientes cliente : clientes) {
             if (cliente.getCedula() == cedula) {
                 return cliente;
@@ -23,7 +23,7 @@ public class CRUDClientes {
         return null;
     }
 
-    public void insertarDinero(long cedula, double cantidadDinero) {
+    public void insertarDinero(long cedula, double cantidadDinero) { // Funcion para insertar mas dinero a la cuenta del cliente.
         Clientes cliente = buscarCedula(cedula);
         if (cliente != null) {
 
@@ -35,7 +35,7 @@ public class CRUDClientes {
         }
     }
 
-    public void actualizarDinero(long cedula, double cantidadDinero) {
+    public void actualizarDinero(long cedula, double cantidadDinero) { // Funcion para actualizar el dinero del cliente.
         Clientes cliente = buscarCedula(cedula);
         if (cliente != null) {
             double dineroActual = cliente.getDineroAhorrado();
@@ -50,7 +50,7 @@ public class CRUDClientes {
         }
     }
 
-    public void eliminarDinero(long cedula, double cantidadDinero) {
+    public void eliminarDinero(long cedula, double cantidadDinero) { // Funcion para eliminar dinero de la cuenta del cliente.
         Clientes cliente = buscarCedula(cedula);
         if (cliente != null) {
             double dineroActual = cliente.getDineroAhorrado();
@@ -65,7 +65,7 @@ public class CRUDClientes {
         }
     }
 
-    public void buscarCliente(String nombre) {
+    public void buscarCliente(String nombre) { // Funcion para buscar a un cliente por su nombre.
         for (Clientes cliente : clientes) {
             if (cliente.getNombre().equalsIgnoreCase(nombre)) {
                 System.out.println(cliente);
@@ -75,7 +75,7 @@ public class CRUDClientes {
         System.out.println("Cliente no encontrado.");
     }
 
-    public void listarClientes() {
+    public void listarClientes() { // Funcion para listar todos los clientes.
         if (clientes.isEmpty()) {
             System.out.println("No hay clientes registrados.");
         } else {
@@ -86,7 +86,7 @@ public class CRUDClientes {
     }
 
 
-    public void SolicitudPrestamo(long cedula) {
+    public void SolicitudPrestamo(long cedula) { // Funcion para solicitar un prestamo.
 
         if (clientes.isEmpty()) {
             System.out.println("No hay clientes registrados en el sistema.");
@@ -134,7 +134,7 @@ public class CRUDClientes {
         }
 
 
-        public static void solicitudCdt(long cedula) {
+        public static void solicitudCdt(long cedula) { // Funcion para solicitar un Cdt.
             if (clientes.isEmpty()) {
                 System.out.println("No hay clientes registrados en el sistema.");
             } else {

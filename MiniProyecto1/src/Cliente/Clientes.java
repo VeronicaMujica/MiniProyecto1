@@ -1,13 +1,13 @@
 package Cliente;
 
-public class Clientes {
+public class Clientes { // Creacion de la clase cliente con sus respectivos atributos.
     private String nombre;
     private long cedula;
     private double dineroAhorrado;
     private double nivelIngresos;
     private String fechaCreacion;
 
-    public Clientes(String nombre, long cedula,  double dineroAhorrado, double nivelIngresos, String fechaCreacion) {
+    public Clientes(String nombre, long cedula,  double dineroAhorrado, double nivelIngresos, String fechaCreacion) { // Constructor de la clase.
         this.nombre = nombre;
         this.cedula = cedula;
         this.dineroAhorrado = dineroAhorrado;
@@ -15,7 +15,7 @@ public class Clientes {
         this.fechaCreacion = fechaCreacion;
     }
 
-    // Getters y Setters
+    // Getters y Setters de la clase Cliente.
     public String getNombre() {
         return nombre;
     }
