@@ -26,12 +26,11 @@ public class CRUDClientes { // Este es la clase que abarca toda la funcionalidad
     public void insertarDinero(long cedula, double cantidadDinero) { // Función para insertar mas dinero a la cuenta del cliente.
         Clientes cliente = buscarCedula(cedula);
         if (cliente != null) {
-
             double dineroActual = cliente.getDineroAhorrado();
             cliente.setDineroAhorrado(dineroActual + cantidadDinero);
             System.out.println("Dinero agregado correctamente al cliente " + cliente.getNombre());
         } else {
-            System.out.println("Cliente con la cedula " + cedula + " no encontrado.");
+            System.out.println("Cliente con la cédula " + cedula + " no encontrado.");
         }
     }
 
@@ -85,7 +84,6 @@ public class CRUDClientes { // Este es la clase que abarca toda la funcionalidad
         }
     }
 
-
     public void SolicitudPrestamo(long cedula) { // Función para solicitar un préstamo.
 
         if (clientes.isEmpty()) {
@@ -96,7 +94,7 @@ public class CRUDClientes { // Este es la clase que abarca toda la funcionalidad
             if (cliente != null) {
                 double ahorroCliente = cliente.getDineroAhorrado();
                 double creditoMaximo = ahorroCliente * 2;
-                System.out.println("Ingrese el monto de la solicitud del prestamo: ");
+                System.out.println("Ingrese el monto de la solicitud del préstamo: ");
                 double valorPrestamo = scanner.nextDouble();
                 scanner.nextLine(); 
     
@@ -104,37 +102,35 @@ public class CRUDClientes { // Este es la clase que abarca toda la funcionalidad
                     if (valorPrestamo <= ahorroCliente) {
                         double saldoFinal = ahorroCliente - valorPrestamo;
                         cliente.setDineroAhorrado(saldoFinal);
-                        System.out.println("el prestamo solicitado por un valor de "+ valorPrestamo +
+                        System.out.println("el préstamo solicitado por un valor de "+ valorPrestamo +
                         " del cliente ha sido aprobado su saldo restante es de: " + saldoFinal);
-                    } 
-                   else {
-                    double valorExcedido = valorPrestamo - ahorroCliente;
-                    ahorroCliente =0;
-                    cliente.setDineroAhorrado(ahorroCliente);
-                    System.out.println("el prestamo solicitado por un valor de "+ valorPrestamo +
-                        " del cliente ha sido aprobado su saldo restante es de: " + ahorroCliente); 
-                    System.out.println("El valor del prestamo es mayor a lo ahorrado, el excedente es: "+ valorExcedido);
-                    double interesAnual = 0.02;
-                    double interesMensual = (interesAnual/12);
-                    double meses = 6; 
-                    double interes = valorPrestamo * (Math.pow(1 + (interesMensual), meses));
-                    double cuotaMensual = (interes/6);
-    
-                    System.out.println("El valor de la cuota mensual del cliente con numero de cedula "+ cedula + 
-                    " es: " + cuotaMensual);
+                    } else {
+                        double valorExcedido = valorPrestamo - ahorroCliente;
+                        ahorroCliente =0;
+                        cliente.setDineroAhorrado(ahorroCliente);
+                        System.out.println("el préstamo solicitado por un valor de "+ valorPrestamo +
+                            " del cliente ha sido aprobado su saldo restante es de: " + ahorroCliente); 
+                        System.out.println("El valor del préstamo es mayor a lo ahorrado, el excedente es: "+ valorExcedido);
+                        double interesAnual = 0.02;
+                        double interesMensual = (interesAnual/12);
+                        double meses = 6; 
+                        double interes = valorExcedido * (Math.pow(1 + (interesMensual), meses));
+                        double cuotaMensual = (interes/6);
+        
+                        System.out.println("El valor de la cuota mensual del cliente con número de cédula "+ cedula + 
+                        " es: " + cuotaMensual);
                     }
                 }else{
-                    System.out.println("El valor del prestamo excede su credito, solo puede ser el doble de su dinero ahorrado");
-                }
 
+                    System.out.println("No se puede realizar el préstamo. \nNo tienes nada ahorrado o el valor del préstamo no esta permitido o excede su crédito, solo puede ser el doble de su dinero ahorrado");
+                }
             }else{
-                    System.out.println("El cliente con el numero cedula "+ cedula +" no se encuentra registrado, verifica nuevamente el numero...");
-        }
+                    System.out.println("El cliente con el número cédula "+ cedula +" no se encuentra registrado, verifica nuevamente el número...");
+                }
             }
         }
 
-
-        public static void solicitudCdt(long cedula) { // Función para solicitar un CDT.
+        public void solicitudCdt(long cedula) { // Función para solicitar un CDT.
             if (clientes.isEmpty()) {
                 System.out.println("No hay clientes registrados en el sistema.");
             } else {
@@ -143,7 +139,6 @@ public class CRUDClientes { // Este es la clase que abarca toda la funcionalidad
                 if (cliente != null) {
                     double ahorroActual = cliente.getDineroAhorrado();
                     
-                    Scanner scanner = new Scanner(System.in);
                     int eleccion;
     
                     System.out.println("\nOpciones disponibles para CDT:");
@@ -170,10 +165,10 @@ public class CRUDClientes { // Este es la clase que abarca toda la funcionalidad
                             System.out.println("Volviendo atrás...");
                             break;
                         default:
-                            System.out.println("Opción inválida.");
+                            System.out.println("Opción inválida...");
                     }
                 } else {
-                    System.out.println("Cliente no encontrado.");
+                    System.out.println("Cliente no encontrado...");
                 }
             }
         }
