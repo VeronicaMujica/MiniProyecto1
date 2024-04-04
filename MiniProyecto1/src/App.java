@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 import Cliente.CRUDClientes;
 import Cliente.Clientes;
-
 public class App { // Esta es la clase App, que unifica todo el proyecto para hacer que se proyecte en la terminal.
     public static void main(String[] args) { // Función principal o main, hace que la aplicación funcione de forma ordenada.
         CRUDClientes crud = new CRUDClientes();
