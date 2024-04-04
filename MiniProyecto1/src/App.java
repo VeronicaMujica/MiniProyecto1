@@ -4,11 +4,11 @@ import Cliente.CRUDClientes;
 import Cliente.Clientes;
 
 public class App { // Esta es la clase App, que unifica todo el proyecto para hacer que se proyecte en la terminal.
-    public static void main(String[] args) { // Funcion principal o main, hace que la aplicación funcione de forma ordenada.
+    public static void main(String[] args) { // Función principal o main, hace que la aplicación funcione de forma ordenada.
         CRUDClientes crud = new CRUDClientes();
         Scanner scanner = new Scanner(System.in);
 
-        while (true) { // Creacion del menu inicial donde se encontraran todas las opciones con sus respectivas funciones asignadas.
+        while (true) { // Creación del menú inicial donde se encontrarán todas las opciones con sus respectivas funciones asignadas.
             System.out.println("\nMenu:");
             System.out.println("1. Crear cliente");
             System.out.println("2. Insertar dinero ahorrado");
@@ -24,7 +24,7 @@ public class App { // Esta es la clase App, que unifica todo el proyecto para ha
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
-            switch (opcion) { // Apartado de seleccion, donde se encuentran todas las posibles selecciones dentro de la aplicacion y sus dialogos preescritos.
+            switch (opcion) { // Apartado de selección, donde se encuentran todas las posibles selecciones dentro de la aplicación y sus diálogos pre escritos.
                 case 1:
                     System.out.print("Nombre del cliente: ");
                     String nombre = scanner.nextLine();

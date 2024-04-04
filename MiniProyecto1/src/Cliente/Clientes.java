@@ -1,6 +1,6 @@
 package Cliente;
 
-public class Clientes { // Creacion de la clase cliente con sus respectivos atributos.
+public class Clientes { // Creación de la clase cliente con sus respectivos atributos.
     private String nombre;
     private long cedula;
     private double dineroAhorrado;
